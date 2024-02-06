@@ -1,0 +1,87 @@
+---
+import Tailwind from "../icons/Tailwind.astro";
+import React from "../icons/React.astro";
+import Express from "../icons/Express.astro";
+import Mongodb from "../icons/Mongodb.astro";
+import Prisma from "../icons/Prisma.astro";
+import Code from "../icons/Code.astro";
+import CardProject from "../CardProject.astro";
+
+const tags = {
+  tailwind: {
+    name: "Tailwind CSS",
+    color:
+      "flex flex-row items-center fill-sky-500 bg-sky-900 border-sky-500 border-2 text-sky-400 px-4 gap-2 rounded-full",
+    icon: Tailwind,
+  },
+  react: {
+    name: "React",
+    color:
+      "flex flex-row items-center fill-blue-500 bg-blue-900 border-blue-500 border-2 text-blue-400 px-4 gap-2 rounded-full",
+    icon: React,
+  },
+  express: {
+    name: "Express",
+    color:
+      "flex flex-row items-center fill-orange-500 bg-orange-900 border-orange-500 border-2 text-orange-400 px-4 gap-2 rounded-full",
+    icon: Express,
+  },
+  mongodb: {
+    name: "MongoDB",
+    color:
+      "flex flex-row items-center fill-green-500 bg-green-900 border-green-500 border-2 text-green-400 px-4 gap-2 rounded-full",
+    icon: Mongodb,
+  },
+  prisma: {
+    name: "Prisma",
+    color:
+      "flex flex-row items-center fill-emerald-500 bg-emerald-900 border-emerald-500 border-2 text-emerald-400 px-4 gap-2 rounded-full",
+    icon: Prisma,
+  },
+};
+
+const projects = [
+  {
+    title: "Blog - Un lugar donde contar experiencias",
+    description:
+      "Una aplicación de blog que permite al administrador crear, editar y eliminar blogs. El blog en este caso es de mi propiedad y lo uso para compartir mis conocimientos y experiencias.",
+    technologies: [
+      tags.tailwind,
+      tags.react,
+      tags.express,
+      tags.mongodb,
+      tags.prisma,
+    ],
+    image: "/projects/blog_mockup.webp",
+    link: "https://blog-frontend-h0be.onrender.com/",
+  },
+  {
+    title: "Task buddy - Gestiona tus notas y proyectos de manera sencilla y rápida",
+    description:
+      "Una aplicación de tareas que permite al usuario crear, editar y eliminar tanto notas como proyectos de una manera sencilla y eficaz.Perfecta para aquellos que buscan una aplicación donde anotar sus ideas y proyectos de manera rápida",
+    technologies: [tags.tailwind, tags.react],
+    image: "/projects/taskbuddy_mockup.webp",
+    link: "https://taskbuddy-frontend-h0be.onrender.com/",
+  },
+  {
+    title: "Universidad - Un lugar donde los aquellos que buscan conocimiento pueden encontrarlo",
+    description:
+      "Sitio web de una universidad realizada para una prueba técnica. El sitio web cuenta con una pagina de inicio, una pagina de carreras y una pagina de contacto. Sin embargo para mayor desafió se le agrego un sistema de DevOps para el despliegue continuo de la aplicación en GitHub Actions.",
+      /* Astro falta */
+    technologies: [tags.tailwind],
+    image: "/projects/universidad_mockup.webp",
+    link: "https://universidad-frontend-h0be.onrender.com/",
+  },
+
+
+];
+---
+
+<section class="mt-32">
+  <h2 class="text-2xl lg:text-4xl font-bold text-indigo-300">
+    <Code class="h-8 w-8 lg:h-12 lg:w-12 inline-block mr-1" /> Proyectos que he realizado
+  </h2>
+  <ul class="mt-8 flex flex-col gap-32 list-disc">
+    {projects.map((project) => <CardProject {...project} />)}
+  </ul>
+</section>
